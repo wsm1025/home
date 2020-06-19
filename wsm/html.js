@@ -11,7 +11,7 @@ function showSlides() {
  slideIndex++;
     if (slideIndex > slides.length) {slideIndex = 1}    
     slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 4000); // 切换时间3秒
+    setTimeout(showSlides, 8000); // 切换时间3秒
 }
 /*切换背景*/
 $(document).ready(function(e) {
