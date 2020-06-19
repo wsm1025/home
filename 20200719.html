@@ -1,103 +1,0 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>0719</title>
-		<script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
-		<link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.0/animate.compat.css" rel="stylesheet">
-		<style>
-		*{	margin: 0;padding:0 ;}
-		.contain{ margin:150px auto; width: 500px; height: 300px;  background-image:url('https://ae01.alicdn.com/kf/H613fea1e96814a748ade5d0753cca9caK.jpg');  background-size: 100% 100%; border: 1px solid blue; border-radius: 10px; perspective: 700px;}
-		.contain:hover{ box-shadow: 0 15px 30px rgba(0,0,0,.5);  transition: 1.5s;-webkit-transition: 1.5s; /* Safari */ }
-		.input{ width: 200px; height: 100px; position: absolute;z-index: 10;margin-left: 160px; margin-top: 70px;background-color: bisque; border-radius: 20px;}
-		.disabled {background-color:#CCC !important;cursor:not-allowed !important;}
-		.sure{width: 198px; height:28px ;  margin-top: 10px;}
-		.getit,.giveup{margin-left: 40px; margin-top: 7px;height: 30px;width: 40px; background-color: aqua;}
-		.whead{position: relative; width:500px;height:100px;background-color:pink;border-radius:10px; border-bottom:1px solid black; transform-origin: top; transition: 1.5s;}
-		.whead>p{text-align: center;line-height: 80px;font-size: 20px;}
-		#open{border-radius: 50%; width: 50px;height: 50px; background-color: floralwhite;position: absolute;top:70%;left:45%;}
-		#open:hover{background-color:pink; transform:rotate(360deg);-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transition:all .8s ease 0s}
-		.letter{width: 500px; height: 626px;   position: absolute;top:5%; left:32%; display: none; background-color: antiquewhite; line-height: 25px; }
-		.up{ animation:mymove 10s infinite;-webkit-animation:mymove 6s ease;}
-		.fanzhuan{transform:rotateX(150deg);-ms-transform:rotateX(150deg);-webkit-transform:rotateX(150deg)}
-		.a1{background: url(https://api.uixsj.cn/bing/bing.php); background-size: 100% 110%;}
-		.a2{background: url(https://api.uixsj.cn/bing/bing.php);}
-		@keyframes mymove
-		{
-			from {top:0px;}
-			to {top:30px;}
-		}
-		
-		@-webkit-keyframes mymove /*Safari and Chrome*/
-		{
-			from {top:0px;}
-			to {top:30px;}
-		}
-		</style>
-	</head>
-	<body class="a1">
-		<!--2020年6月18日09:01:23-->
-		<div class="contain">
-			<div class="input" style="display: none;">
-				<p style="text-align: center;">哎呀，访问受限</p>
-			  <input class="sure" autofocus="autofocus" placeholder="输入密码"  type="password" ><button class="getit" type="submit" onclick="pick()">确定</button><button class="giveup" type="button">取消</button>
-			</div>
-			<div class="whead">
-				<p>一封来自远方的信</p><span class="A"></span>
-				<button id="open" type="submit">打开</button>
-			</div>
-		</div>
-		<div class="letter">
-		</div>
-	</body>
-	<script>
-	    check();/*检测本地数据*/ 		/*逻辑部分*/		let flag = 1 ;/*标识符*/		var wsm = 1;/*标识符*/		let password = '0719';		 function set(){/*本地存储可用次数和密码*/			 localStorage.setItem('password',password);			 localStorage.setItem('setchances',a);		}		set();/*设置参数*/		function pick(){/*验证*/			var text = $(".sure").val();			var p = localStorage.getItem('password');			var s = localStorage.getItem('setchances');
-			if(s<=0){
-				$("#open").hide();
-				pick() = null; 
-			}			if(text != p ){//判断密码				s--;			    $(".sure").val("");				alert("密码错误,还有"+s+"次机会");				localStorage.setItem('setchances',s);
-				$(".input").fadeOut();
-				check();			}else{				console.info("OK");
-				$(".sure").val("");
-				$(".input").hide();				localStorage.removeItem("setchances");
-				$(".whead").addClass("fanzhuan"); $(this).hide(); $(".whead>p").hide(); $(".contain").fadeOut(2000);$(".letter").fadeIn(4000).addClass('up');$("body").removeClass("a1").addClass("a2");			}		}		function check(){/*检查次数*/		    a = localStorage.getItem('setchances');		    if(a==null){a=3;}			if(a<=0){$("button").hide();/*移除框体*/
-			$(".whead>p").html("密码，我需要密码");
-			var A = 120;
-		     function AT(){
-			$(".A").html(A);
-			A--;
-			if(A<=0){clearInterval(X); $(".A").hide();$("button").show(); a = 3; localStorage.setItem('setchances',a);$(".whead>p").html("一封来自远方的信"); }
-			    } 
-			 } 
-			var X =  setInterval(AT,1000);		} 
-		/*封面js*/
-	    $(".whead>p").hover(function(){$(this).addClass(' animated tada')},function(){$(this).removeClass('animated tada')});
-		setInterval(bunce,3000);
-		/*跳动*/
-		function bunce(){
-			if(wsm==1){
-			$(".contain").addClass('animated bounce');
-			 wsm=0;
-			}else{
-			$(".contain").removeClass('animated bounce');
-			wsm=1
-			}
-		}
-		$("#open").click(function(){ $(".input").fadeIn();});
-		$(".giveup").click(function(){ $(".input").fadeOut();});
-                                document.oncontextmenu = () => false;
-		new TypeIt(".letter", {
-		  strings:["又是一个生日，对于朋友的生日，即使我再忙，也会提前准备的。即使准备不充分，但至少我用心去准备了。","	",
-		  "可能我给不到手工的作品，但我用我所学的东西准备了一份不太精彩的礼物。纯手工QAQ","	",
-		  "我们认识的时间虽然不长，561天，但带给我们的不仅仅是希望，更是方向。我们都曾迷惘过，但渐渐地我们看到努力的方向，可能 对于各自来说，都是催化剂，加快了反应的速度。","	",
-		  "哎呀，平时闲聊时还能说很多，现在反而说不出啥了，反正就是朝着自己努力的方向一直前进。你说过，此时不为，何时为！！（ 反正就是那么个意思） 的确之前的日子都蹉跎了，但幸好的是，我们把握住了未来。","	",
-		  "又是一年生日，毕竟一年就一个，也可以准备准备的。你说过，不想要没有实际意义的东西，要手工的。可能，这手工对于我而言 范围挺广的。不知道这样的手工还是否喜欢呢。不喜欢也得喜欢了吧。既然你说手工，行的，手工预定中......","	",
-		  "回头点个赞，就很nice了！","	",
-		  "明年就要毕业了，这也算是对于自己的大学生涯暂停了下。接下来的 你的公务员考试 ，我的应聘会。都能够圆满成功。即使小有失算，但要相信，最差的不过大器晚成 ，满身伤痕才是成长的痕迹。。"],
-		  speed: 200,
-		  waitUntilVisible: true
-		}).go();
-		/*2020年6月18日22:55:39*/
-	</script>
-</html>
