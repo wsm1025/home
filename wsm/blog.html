@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="html.css">
+<script src='https://libs.baidu.com/jquery/2.1.1/jquery.min.js'></script>
+<script src="json.js"></script>
+<title>blog</title>
+</head>
+<body>
+  
+<!--头文件为必应图片-->
+<header>
+<div id="zhuti"><!--轮播图-->
+ <div class="header fade">
+  <p class="text">1/3</p>
+  <img style="height:100%; width:100%;" src="picture/bing.jpg">
+  <div class="description">陪你去天涯海角</div>
+  </div>
+  <div class="header fade">
+  <p class="text">2/3</p>
+  <img  style="height:100%; width:100%;" src="picture/cj.jpg">
+  <div class="description">电闪</div>
+  </div>
+  <div class="header fade">
+  <p class="text">3/3</p>
+  <img  style="height:100%; width:100%;" src="picture/cj.php.jpg">
+  <div class="description">雷鸣</div>
+  </div>
+  <div style="border-bottom:2px solid #00F;"></div>
+  <!--导航栏-->
+  <div>
+ <button class="zuo"><i class="fa fa-cog" style="font-size:21px"></i></button>
+      <div class="tiaoseban"><!--调色板-->
+        <ul>
+        <li onClick="f(1)"><button type="button" style="background-image:url(picture/1.png);">背景1</button></li>
+        <li onClick="f(2)"><button type="button" style="background-image:url(picture/2.png);">背景2</button></li>
+        <li onClick="f(3)"><button type="button" style="background-image:url(picture/3.png);">背景3</button></li>
+        <li onClick="f(4)"><button type="button" style="background-image:url(picture/4.png);">背景4</button></li>
+        <li onClick="f(5)"><button type="button" style="background-image:url(picture/5.png);">背景5</button></li>
+        <li onClick="f(6)"><button type="button" style="background-image:url(picture/6.png);">背景6</button></li>
+        <li onClick="f(7)"><button type="button" style="background-image:url(picture/7.png);">背景7</button></li>
+        </ul>
+      </div>
+      <!--天气API-->
+    <div class="tianqi"><span class="city"></span><span class="wea"></span><span class="week"></span></div>
+      <!-- 语录api-->
+  <div id="hitokoto"><span class="json"></span></div>
+  <nav class="link" style="text-align:center;">
+    <span class="tips1"><img style="margin-left:-200px; height:20px;" src="picture/arrow1.png"></span>
+       <div class="tip tip1"></div> <!--已改为API的调用-->
+  <a href="#">HTML</a> |
+  <a href="#">CSS</a> |
+  <a href="#">JavaScript</a> |
+  <a class="jquery" href="JavaScript:void(0)">jQuery</a> |
+  <a href="#">vue</a>|
+  <a href="#">进展</a> |
+  <a href="#">图册</a> |
+  <a href="#">大学生活</a>
+    <span class="tips2"><img style=" position:absolute;right:100px;; height:20px;" src="picture/arrow1.png"></span>
+   <div id="myhistory" class="history"><p class="history-close">×</p><div class="history-content"></div></div><!--历史上的今天-->
+  </nav>
+  </div>
+</div>
+</header>
+<br/>
+<!--主体部分  搜索框 心情日记(div 可换页) 简介 登录界面 回顶部-->
+<div id="zuo">
+   <div class="wsm">
+     <span><img class="img" style=" height:20%; width:42%;" src="picture/头像.jpg"></span> 
+     <div class="xinxi">
+     <span>姓名:wsm</span>
+     <span>年龄：22</span>
+     <span>爱好:code</span>
+     </div>
+     <span style="background-color:#F0F; border-radius:50%;">about me</span>
+     <span><i class="fa fa-heart" style="font-size:24px;color:red; margin-left:30px;"></i></span>
+     <div style="border-bottom:1px solid red; margin-top:4px;"></div>
+     <p style="text-indent:2em; line-height:1.5">这里是我的小世界，自从我看过别人的博客，被他们的博客效果深深吸引住了,不管是实用性还是功能性，效果是一级棒的。的确，一千个读者就有一千个哈姆雷特。我们要做的就是学习 编写 实践。</p>
+   </div>
+   <!--时间标签-->
+  <div class="time" style="text-align:center;color:rgb(0, 255, 204);letter-spacing:0.129em;line-height:1.5;"></div>
+ <div class="all-title">
+ <input type="text"  onClick="search()" id="search" style=" width:130px; font-size:14px; margin-top:10px;" placeholder="输入关键词点击左键"><i class="fa fa-close" style="font-size:20px;"></i>
+    <div class="title">全部标签</div>
+    <div class="show-title">
+    <ul class="show">
+    <li><i class="fa fa-bookmark-o" style="font-size:24px"></i>生活<span class="keyword">2</span>个</li>
+    <li><i class="fa fa-bookmark-o" style="font-size:24px"></i>学习<span class="keyword">4</span>个</li>
+    <li><i class="fa fa-bookmark-o" style="font-size:24px"></i>大学<span class="keyword">5</span>个</li>
+    <li><i class="fa fa-bookmark-o" style="font-size:24px"></i>早安<span class="keyword">6</span>个</li>
+    <li><i class="fa fa-bookmark-o" style="font-size:24px"></i>心情<span class="keyword">5</span>个</li>
+    <li><i class="fa fa-bookmark-o" style="font-size:24px"></i>想你<span class="keyword">3</span>个</li>
+    <li><i class="fa fa-bookmark-o" style="font-size:24px"></i>你好<span class="keyword">6</span>个</li>
+    </ul>
+    </div>
+ </div>
+</div>
+<!--模态框-->
+  <div id="mymodal" class="modal">
+   <div class="modal-content">
+   <span class="close">&times;</span>
+   <strong>已知bug:</strong>
+   <p>1.搜索框待完善,可以显示但无法匹配心情说</p>
+   <p>2.右侧点击添加我时,滚动条拉下,面板消失。再次回上去,两个面板出现,但此时a=0,再次点击恢复a=1,才能继续使用的右侧功能</p>
+   <p>3.页面右边部分，下边部分待完善</p>
+   <strong>更新：</strong>
+   <p>1.json数据的处理，得到的内容写入网页中---2020年4月15日19:19:06</p>
+   <p>2.完善下部简单部分---2020年4月15日14:35:27</p>
+   <p>3.两种json数据处理方式---2020年4月16日11:23:35</p>
+    </div>
+   </div>
+<!--中间内容-->
+<div id="content">
+<!-- list 多表格 选项卡-->
+ <div id="neirong">
+ <div class="neirongzuo">
+ <ul id="pageContent"> 
+    <li>
+      <div class="say">
+      <span class="word">主题:生活</span>
+      </div>
+    </li>
+    <li>
+      <div class="say">
+      <span class="word">主题:生活</span>
+      </div>
+    </li>
+    <li>
+      <div class="say">
+       <span class="word">主题:生活</span>
+      </div>
+    </li>
+   <li>
+      <div class="say">
+       <span class="word">主题:生活</span>
+       <span class="day">2020 03 10</span>
+       <p class="think">把自己抬得过高，别人未必仰视你；把自己摆得过低，别人未必尊重你；没有人是完美的，无须遮掩自己的缺失。做人要能抬头，更要能低头。一仰一俯之间，不仅是一个姿势，更是一种态度。逆境时抬头是一种勇气和信心；顺境时低头是一种冷静和低调。</p>
+      </div>
+    </li>
+    <li>
+      <div class="say">
+       <span class="word">主题:生活</span>
+       <span class="day">2020 03 10</span>
+       <p class="think">把自己抬得过高，别人未必仰视你；把自己摆得过低，别人未必尊重你；没有人是完美的，无须遮掩自己的缺失。做人要能抬头，更要能低头。一仰一俯之间，不仅是一个姿势，更是一种态度。逆境时抬头是一种勇气和信心；顺境时低头是一种冷静和低调。</p>
+      </div>
+    </li>
+    <li>
+      <div class="say">
+       <span class="word">主题:生活</span>
+       <span class="day">2020 03 10</span>
+       <p class="think">把自己抬得过高，别人未必仰视你；把自己摆得过低，别人未必尊重你；没有人是完美的，无须遮掩自己的缺失。做人要能抬头，更要能低头。一仰一俯之间，不仅是一个姿势，更是一种态度。逆境时抬头是一种勇气和信心；顺境时低头是一种冷静和低调。</p>
+      </div>
+    </li>
+    <li>
+      <div class="say">
+       <span class="word">主题:生活</span>
+       <span class="day">2020 03 10</span>
+       <p class="think">把自己抬得过高，别人未必仰视你；把自己摆得过低，别人未必尊重你；没有人是完美的，无须遮掩自己的缺失。做人要能抬头，更要能低头。一仰一俯之间，不仅是一个姿势，更是一种态度。逆境时抬头是一种勇气和信心；顺境时低头是一种冷静和低调。</p>
+      </div>
+    </li>
+    <li>
+      <div class="say">
+       <span class="word">主题:生活</span>
+       <span class="day">2020 03 10</span>
+       <p class="think">把自己抬得过高，别人未必仰视你；把自己摆得过低，别人未必尊重你；没有人是完美的，无须遮掩自己的缺失。做人要能抬头，更要能低头。一仰一俯之间，不仅是一个姿势，更是一种态度。逆境时抬头是一种勇气和信心；顺境时低头是一种冷静和低调。</p>
+      </div>
+    </li>
+</ul> 
+<div id="pages"> <span id="spanFirst">首页</span> <span id="spanPre">上一页</span> <span id="spanNext">下一页</span> <span id="spanLast">尾页</span> 第<strong id="spanPageNum"></strong>页/共<strong id="spanTotalPage"></strong>页 </div> 
+   </div>
+ <div class="neirongyou">
+       <div style="width:90%; height:185px; margin-top: 10px; margin-left: 10px; border: 1px red solid;" id="video">
+        <!--数组切换 待完善-->
+        <video class="video"  poster="picture/BIM BAM BUM.jpg" controls><source src="BIM BAM BUM.mp4"><!--<source src="https://vodkgeyttp8.vod.126.net/cloudmusic/39ff/core/0337/169d69b1af0b42315cc2122d12a3ee7f.mp4?wsSecret=0bbd73304fdf0f958dcac18e8877e0cf&wsTime=1587083559">--></video>
+        <video class="video"  poster="picture/Afterhours.jpg" controls><source src="Afterhours.mp4"></video>
+        <video class="video"  poster="picture/脸红的思春期 - 나만,봄.jpg" controls><source src="脸红的思春期 - 나만,봄.mp4"></video>
+          <button type="button" class="next" onclick="videoshow()">下一个</button>
+       </div>
+       <div style="width:100%; height:180px;"><img  style="width:100%; height:180px; margin-top:50px;" src="https://api.moonwl.cn/api/qm/ip.php"></div>
+       </div>
+ </div>
+ </div>
+<!--右边内容-->
+    <i class="fa fa-angle-left"></i>
+   <div class="add">
+   <button class="addme" style="background-color:#CFC; margin-top:5px;">添加我？</button>
+   <button class="change" style="background-color:#CFC; margin-top:5px;">切换模式</button>
+   <button class="question" style="background-color:#CFC; margin-top:5px;">有问题？</button>
+   </div>
+   <div class="youup">
+   <ul>
+   <li><a href="#1"><img  class="picture" title="qq" alt="qq" src="picture/qq.jpg"></a></li>
+   <li><a href="#2"><img  class="picture" title="wx" alt="wx" src="picture/wx.jpg"></a></li>
+   <li><a href="#3"><img  class="picture" title="wb" alt="wb" src="picture/wb.jpg"></a></li>
+   </ul>
+   </div>
+ <div id="you">
+    <nav>
+  <a href="#">HTML</a> 
+  <a href="#">CSS</a> 
+  <a href="#">JavaScript</a> 
+  <a href="#">jQuery</a> 
+  <a href="#">vue</a>
+  <a href="#">进展</a> 
+  <a href="#">图册</a> 
+  <a href="#">大学生活</a>
+     </nav>
+   <div class="up" title="返回顶部"><i class="fa fa-arrow-circle-up" style="font-size:36px"></i></div>
+  </div>
+  <footer>
+  <div class="footer">
+  </div>
+  </footer>
+<!--link部分-->
+<div class="footer links">
+<strong style="color:#C9C;">相关链接</strong>
+<a href="https://www.baidu.com">百度</a>
+<a href="https://www.dandanzan.com/">蛋蛋赞</a>
+<a href="https://www.jq22.com">实用网址</a>
+<a href="http://www.lvyestudy.com/">绿叶</a>
+</div>
+<script src="html.js"></script>
+</body>
+</html>
