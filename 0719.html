@@ -8,7 +8,7 @@
 		<link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.0/animate.compat.css" rel="stylesheet">
 		<style>
 		*{	margin: 0;padding:0 ;}
-		.contain{ margin:150px auto; width: 500px; height: 300px;  background-image:url('https://ae01.alicdn.com/kf/H613fea1e96814a748ade5d0753cca9caK.jpg');  background-size: 100% 100%; border: 1px solid blue; border-radius: 10px; perspective: 700px;}
+		.contain{ margin:150px auto; width: 500px; height: 300px;  background-image:url('https://ae01.alicdn.com/kf/H613fea1e96814a748ade5d0753cca9caK.jpg');  background-size: 100% 100%;  border-radius: 10px; perspective: 700px;}
 		.contain:hover{ box-shadow: 0 15px 30px rgba(0,0,0,.5);  transition: 1.5s;-webkit-transition: 1.5s; /* Safari */ }
 		.input{ width: 200px; height: 100px; position: absolute;z-index: 10;margin-left: 160px; margin-top: 70px;background-color: bisque; border-radius: 20px;}
 		.disabled {background-color:#CCC !important;cursor:not-allowed !important;}
@@ -52,16 +52,43 @@
 		</div>
 	</body>
 	<script>
-	    check();/*检测本地数据*/ 		/*逻辑部分*/		let flag = 1 ;/*标识符*/		var wsm = 1;/*标识符*/		let password = '0719';		 function set(){/*本地存储可用次数和密码*/			 localStorage.setItem('password',password);			 localStorage.setItem('setchances',a);		}		set();/*设置参数*/		function pick(){/*验证*/			var text = $(".sure").val();			var p = localStorage.getItem('password');			var s = localStorage.getItem('setchances');
+	    check();/*检测本地数据*/ 
+		/*逻辑部分*/
+		let flag = 1 ;/*标识符*/
+		var wsm = 1;/*标识符*/
+		let password = '0719';
+		 function set(){/*本地存储可用次数和密码*/
+			 localStorage.setItem('password',password);
+			 localStorage.setItem('setchances',a);
+		}
+		set();/*设置参数*/
+		function pick(){/*验证*/
+			var text = $(".sure").val();
+			var p = localStorage.getItem('password');
+			var s = localStorage.getItem('setchances');
 			if(s<=0){
 				$("#open").hide();
 				pick() = null; 
-			}			if(text != p ){//判断密码				s--;			    $(".sure").val("");				alert("密码错误,还有"+s+"次机会");				localStorage.setItem('setchances',s);
+			}
+			if(text != p ){//判断密码
+				s--;
+			    $(".sure").val("");
+				alert("密码错误,还有"+s+"次机会");
+				localStorage.setItem('setchances',s);
 				$(".input").fadeOut();
-				check();			}else{				console.info("OK");
+				check();
+			}else{
+				console.info("OK");
 				$(".sure").val("");
-				$(".input").hide();				localStorage.removeItem("setchances");
-				$(".whead").addClass("fanzhuan"); $(this).hide(); $(".whead>p").hide(); $(".contain").fadeOut(2000);$(".letter").fadeIn(4000).addClass('up');$("body").removeClass("a1").addClass("a2");			}		}		function check(){/*检查次数*/		    a = localStorage.getItem('setchances');		    if(a==null){a=3;}			if(a<=0){$("button").hide();/*移除框体*/
+				$(".input").hide();
+				localStorage.removeItem("setchances");
+				$(".whead").addClass("fanzhuan"); $(this).hide(); $(".whead>p").hide(); $(".contain").fadeOut(2000);$(".letter").fadeIn(4000).addClass('up');$("body").removeClass("a1").addClass("a2");
+			}
+		}
+		function check(){/*检查次数*/
+		    a = localStorage.getItem('setchances');
+		    if(a==null){a=3;}
+			if(a<=0){$("button").hide();/*移除框体*/
 			$(".whead>p").html("密码，我需要密码");
 			var A = 120;
 		     function AT(){
@@ -70,7 +97,8 @@
 			if(A<=0){clearInterval(X); $(".A").hide();$("button").show(); a = 3; localStorage.setItem('setchances',a);$(".whead>p").html("一封来自远方的信"); }
 			    } 
 			 } 
-			var X =  setInterval(AT,1000);		} 
+			var X =  setInterval(AT,1000);
+		} 
 		/*封面js*/
 	    $(".whead>p").hover(function(){$(this).addClass(' animated tada')},function(){$(this).removeClass('animated tada')});
 		setInterval(bunce,3000);
