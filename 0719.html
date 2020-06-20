@@ -19,19 +19,19 @@
 		#open{border-radius: 50%; width: 50px;height: 50px; background-color: floralwhite;position: absolute;top:70%;left:45%;}
 		#open:hover{background-color:pink; transform:rotate(360deg);-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transition:all .8s ease 0s}
 		.letter{width: 500px; height: 626px;   position: absolute;top:5%; left:32%; display: none; background-color: antiquewhite; line-height: 25px; }
-		.up{ animation:mymove 10s infinite;-webkit-animation:mymove 6s ease;}
+		.up{ animation:mymove 6s infinite;-webkit-animation:mymove 6s ease;}
 		.fanzhuan{transform:rotateX(150deg);-ms-transform:rotateX(150deg);-webkit-transform:rotateX(150deg)}
 		.a1{background: url(https://api.uixsj.cn/bing/bing.php);}
 		@keyframes mymove
 		{
-			from {top:0px;}
-			to {top:30px;}
+			from {top:0;}
+			to {top:50%;margin-top:-314px;}
 		}
 		
 		@-webkit-keyframes mymove /*Safari and Chrome*/
 		{
 			from {top:0px;}
-			to {top:30px;}
+			to {top:50%;margin-top:-314px;}
 		}
 		</style>
 	</head>
