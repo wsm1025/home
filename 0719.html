@@ -49,7 +49,6 @@
 		</div>
 		<div class="letter">
 		</div>
-	</body>
 	<script>
 	    check();/*检测本地数据*/ 
 		/*逻辑部分*/
@@ -132,4 +131,50 @@
 		/*2020年6月18日22:55:39*/
 		/*2020年6月19日19:27:36  二次*/
 	</script>
+	<script>
+	(function () {
+    'use strict';
+    var coreSocialistValues = ["\u59EC\u5C0F\u91CE", "\u767D\u53D1\u6284", "\u7FBD\u5C0F\u7136", "\u6613\u5C0F\u5189", "\u5415\u5C0F\u5C18", "\u8352\u5929\u5E1D",
+                               "\u542C\u96EA\u697C", "\u9F99\u5C0F\u8944", "\u5929\u9A71","\u8FB0\u6708", "\u82CF\u664B\u5B89", "\u897F\u5C0F\u9759", "\u9F0E\u5251\u9601"],
+        index = Math.floor(Math.random() * coreSocialistValues.length);
+    document.body.addEventListener('click', function (e) {
+        if (e.target.tagName == 'A') {
+            return;
+        }
+        var x = e.pageX,
+            y = e.pageY,
+            span = document.createElement('span');
+        span.textContent = coreSocialistValues[index];
+        index = (index + 1) % coreSocialistValues.length;
+        span.style.cssText = ['z-index: 9999999; position: absolute; font-size: 104px; font-weight: bold; color: #3333ff; top: ', y - 20, 'px; left: ', x, 'px;'].join('');
+        var col = ['aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'orange', 'purple', 'red', 'silver', 'teal', 'white', 'yellow']
+        Math.seed = 1999
+        var r = Math.floor(Math.random()*col.length)
+        span.style.color = col[r];
+        var font = ['12px', '13px', '14px', '15px', '16px']
+        var f = Math.floor(Math.random()*font.length)
+        span.style.fontSize = font[f]
+        document.body.appendChild(span);
+       animate(span);
+    });
+
+    function animate(el) {
+        var i = 0,
+            top = parseInt(el.style.top),
+            id = setInterval(frame, 16.7); // 消失速度,原来是16.7
+
+        function frame() {
+            if (i > 180) {
+                clearInterval(id);
+                el.parentNode.removeChild(el);
+            } else {
+                i += 2;
+                el.style.top = top - i + 'px';
+                el.style.opacity = (180 - i) / 180;
+            }
+        }
+    }
+})();
+</script>
+</body>
 </html>
