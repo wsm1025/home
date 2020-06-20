@@ -134,8 +134,7 @@
 	<script>
 	(function () {
     'use strict';
-    var coreSocialistValues = ["\u59EC\u5C0F\u91CE", "\u767D\u53D1\u6284", "\u7FBD\u5C0F\u7136", "\u6613\u5C0F\u5189", "\u5415\u5C0F\u5C18", "\u8352\u5929\u5E1D",
-                               "\u542C\u96EA\u697C", "\u9F99\u5C0F\u8944", "\u5929\u9A71","\u8FB0\u6708", "\u82CF\u664B\u5B89", "\u897F\u5C0F\u9759", "\u9F0E\u5251\u9601"],
+    var coreSocialistValues = ["2020","0719","陈雯","生日快乐","飞天小汪","在线送祝福","希望不要嫌弃","纯手工"],
         index = Math.floor(Math.random() * coreSocialistValues.length);
     document.body.addEventListener('click', function (e) {
         if (e.target.tagName == 'A') {
@@ -147,7 +146,7 @@
         span.textContent = coreSocialistValues[index];
         index = (index + 1) % coreSocialistValues.length;
         span.style.cssText = ['z-index: 9999999; position: absolute; font-size: 104px; font-weight: bold; color: #3333ff; top: ', y - 20, 'px; left: ', x, 'px;'].join('');
-        var col = ['aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'orange', 'purple', 'red', 'silver', 'teal', 'white', 'yellow']
+        var col = ['aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy']
         Math.seed = 1999
         var r = Math.floor(Math.random()*col.length)
         span.style.color = col[r];
