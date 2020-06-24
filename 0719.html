@@ -54,7 +54,6 @@
 		/*逻辑部分*/
 		let flag = 1 ;/*标识符*/
 		var wsm = 1;/*标识符*/
-		var WSM = 0;/*默认关闭*/
 		let password = '0719';
 		 function set(){/*本地存储可用次数和密码*/
 			 localStorage.setItem('password',password);
@@ -115,9 +114,9 @@
 			wsm=1
 			}
 		}
-		$("#open").click(function(){ $(".input").slideDown(2000);WSM = 1; tan();});
+		$("#open").click(function(){ $(".input").slideDown(2000);});
 		$(".giveup").click(function(){ $(".input").slideUp(2000);});
-        /* document.oncontextmenu = () => false; */
+                                document.oncontextmenu = () => false;
 		new TypeIt(".letter", {
 		  strings:["又是一个生日，对于朋友的生日，即使我再忙，也会提前准备的。即使准备不充分，但至少我用心去准备了。","	",
 		  "可能我给不到手工的作品，但我用我所学的东西准备了一份不太精彩的礼物。纯手工QAQ","	",
@@ -133,22 +132,14 @@
 		/*2020年6月19日19:27:36  二次*/
 	</script>
 	<script>
-	var tan = function tan() {
-		if( WSM ==1){
-        'use strict';
-	    //获取屏幕大小//
-	    var w=window.innerWidth
-	    || document.documentElement.clientWidth
-	    || document.body.clientWidth;
-	    var h=window.innerHeight
-	    || document.documentElement.clientHeight
-	    || document.body.clientHeight;
-        var coreSocialistValues = ["2020","0719","陈雯","生日快乐","蒸汽老陈","祝福","希望不要嫌弃","纯手工","前程似锦"],
+	(function () {
+    'use strict';
+    var coreSocialistValues = ["2020","0719","陈雯","生日快乐","飞天小汪","在线送祝福","希望不要嫌弃","纯手工"],
         index = Math.floor(Math.random() * coreSocialistValues.length);
-		for(var C = 1;C<=10;C++){
-			var x = (w-50) * Math.random();
-			var y = (h-10) * Math.random();
-        var  span = document.createElement('span');
+    $(document).on('click', function (e) {
+        var x = e.pageX,
+            y = e.pageY,
+            span = document.createElement('span');
         span.textContent = coreSocialistValues[index];
         index = (index + 1) % coreSocialistValues.length;
         span.style.cssText = ['z-index: 9999999; position: absolute; font-size: 104px; font-weight: bold; color: #3333ff; top: ', y - 20, 'px; left: ', x, 'px;'].join('');
@@ -156,16 +147,13 @@
         Math.seed = 1999
         var r = Math.floor(Math.random()*col.length)
         span.style.color = col[r];
-        var font = ['14px', '15px', '16px', '17px', '18px']
+        var font = ['14px', '15px', '16px', '15px', '17px']
         var f = Math.floor(Math.random()*font.length)
         span.style.fontSize = font[f]
         document.body.appendChild(span);
        animate(span);
-	     }
-       }
-	   else{
-		   clearInterval(tan);
-	   }
+    });
+
     function animate(el) {
         var i = 0,
             top = parseInt(el.style.top),
@@ -174,18 +162,15 @@
         function frame() {
             if (i > 180) {
                 clearInterval(id);
+                el.parentNode.removeChild(el);
             } else {
                 i += 2;
-                el.style.top = top - i  +'px';
+                el.style.top = top - i + 'px';
                 el.style.opacity = (180 - i) / 180;
-				if(el.style.opacity<0){
-					el.remove();
-				}
             }
         }
-		}
-};
-setInterval(tan,1000);
+    }
+})();
 </script>
 </body>
 </html>
