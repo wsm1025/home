@@ -185,7 +185,7 @@
 		$("#open").click(function(){ $(".input").slideDown(2000);$(".t").slideDown(1000);$(".left").delay(1500).slideDown(1000);$(".down").delay(3000).slideDown(1000);$(".right").delay(4500).slideDown(1000);});
 		$(".giveup").click(function(){ $(".input").slideUp(2000);});
 		$(".img").click(function(){$(".mask").slideDown();setpicture(this.src);});
-		$(".mask").click(function(){$(this).find('img').remove().slideUp();});
+		$(".mask").click(function(){$(this).slideUp().find('img').remove();});
         /* document.oncontextmenu = () => false; */
 		new TypeIt(".letter", {
 		  strings:["又是一个生日，对于朋友的生日，即使我再忙，也会提前准备的。即使准备不充分，但至少我用心去准备了。","	",
