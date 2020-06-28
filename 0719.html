@@ -179,13 +179,11 @@
 		function bunce(){
 			if(wsm==1){
 			$(".contain").addClass('animated bounce');
-			$("img").removeClass('animated swing');
-			$(".mask>img").removeClass('animated swing');
+			$(".photo>div").find('img').removeClass('animated swing');
 			 wsm=0;
 			}else{
 			$(".contain").removeClass('animated bounce');
-			$("img").addClass('animated swing');
-			$(".mask>img").removeClass('animated swing');
+			$(".photo>div").find('img').addClass('animated swing');
 			wsm=1
 			}
 		}
@@ -194,7 +192,7 @@
 		$(".img").click(function(){$(".mask").slideDown();setpicture(this.src);});
 		$(".mask").click(function(){$(this).slideUp().find('img').remove();});
 		$(".letter").click(function(){$(this).remove();$(".letter1").fadeIn().addClass("up");ajax();});
-                document.oncontextmenu = () => false; 
+                /* document.oncontextmenu = () => false; */
 		new TypeIt(".letter", {
 		  strings:["又是一个生日，对于朋友的生日，即使我再忙，也会提前准备的。即使准备不充分，但至少我用心去准备了。","	",
 		  "可能我给不到手工的作品，但我用我所学的东西准备了一份不太精彩的礼物。纯手工QAQ","	",
@@ -274,5 +272,7 @@
 		xmlhttp.send();
 	}
 </script>
+<script id="ilt" src="https://player.ilt.me/player/js/player.js" key="d0976d28b4b6443c96d72d02bc26afce"></script>
 </body>
 </html>
+
