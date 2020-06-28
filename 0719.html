@@ -67,8 +67,8 @@
 		.bottom:nth-child(1){left: 0%;}.bottom:nth-child(2){left: 74%;}.bottom:nth-child(3){left: 148%;}.bottom:nth-child(4){left: 222%;}
 		.left{position: absolute; left: -25%; width: 35%;}
 		.right{position: absolute; left: 105%; width: 35%;}
-		.mask{ display: none; width:750px ; height: 661px; background-color: bisque; position: absolute; top: 50%; left: 50%; z-index: 1000; margin-top:-331px;margin-left:-375px;}
-		.ajax{line-height: 35px;}
+		.mask{ display: none; width:750px ; height: 661px; background-color: #FFC0CB; position: absolute; top: 50%; left: 50%; z-index: 1000; margin-top:-331px;margin-left:-375px;}
+		.ajax{line-height: 40px;}
 		</style>
 	</head>
 	<body class="a1">
@@ -190,7 +190,7 @@
 			}
 		}
 		$("#open").click(function(){ $(".input").slideDown(1500); $("img").delay(1500).slideDown(2000);$(".sure").focus();});
-		$(".giveup").click(function(){ $(".input").slideUp(2000);$("img").slideUp(2000);});
+		$(".giveup").click(function(){ $(".input").delay(1500).slideUp(2000);$("img").slideUp(2000);});
 		$(".img").click(function(){$(".mask").slideDown();setpicture(this.src);});
 		$(".mask").click(function(){$(this).slideUp().find('img').remove();});
 		$(".letter").click(function(){$(this).remove();$(".letter1").fadeIn().addClass("up");ajax();});
