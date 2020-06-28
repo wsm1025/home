@@ -188,7 +188,7 @@
 			wsm=1
 			}
 		}
-		$("#open").click(function(){ $(".input").slideDown(1500); $("img").slideDown(2000);$(".sure").focus();});
+		$("#open").click(function(){ $(".input").slideDown(1500); $("img").delay(1500).slideDown(2000);$(".sure").focus();});
 		$(".giveup").click(function(){ $(".input").slideUp(2000);$("img").slideUp(2000);});
 		$(".img").click(function(){$(".mask").slideDown();setpicture(this.src);});
 		$(".mask").click(function(){$(this).slideUp().find('img').remove();});
