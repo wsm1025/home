@@ -15,6 +15,7 @@
 		        background:url(https://api.uixsj.cn/bing/bing.php) ;
 		    }
 			.letter{width: 500px; height: 626px; border-radius: 20px;   position: absolute; top:50%;margin-top:-314px;left:50%;margin-left:-250px; display: none; background-color: antiquewhite; line-height: 20px; }
+			.letter1{width: 500px; height: 626px; border-radius: 20px;   position: absolute; top:50%;margin-top:-314px;left:50%;margin-left:-250px; display: none; background-color: antiquewhite; line-height: 20px; }
 		@keyframes mymove
 		{
 			from {top:0;}
@@ -32,6 +33,7 @@
 				background:url("https://ae01.alicdn.com/kf/Hf87ee818d84b45329d5244c44b939f8aD.jpg") ;
 		    }
 			.letter{width: 700px; height: 1100px; border-radius: 20px;   position: absolute; top:50%;margin-top:-550px;left:50%;margin-left:-350px; display: none; background-color: antiquewhite; line-height: 33px;font-size: 27px; }
+			.letter1{width: 700px; height: 1100px; border-radius: 20px;   position: absolute; top:50%;margin-top:-550px;left:50%;margin-left:-350px; display: none; background-color: antiquewhite; line-height: 33px;font-size: 27px; }
 		@keyframes mymove
 		{
 			from {top:0;}
@@ -58,15 +60,15 @@
 		.fanzhuan{transform:rotateX(150deg);-ms-transform:rotateX(150deg);-webkit-transform:rotateX(150deg)}
 		.a1{ cursor: url(https://ae01.alicdn.com/kf/H098f58de38ef43e7b416fba56f036a8eH.jpg), auto; }
 		.next{position: absolute; bottom: 3%; right: 5%;}
-		.img{ width: 60%;display: block; position: absolute; border-radius: 20px;}
+		.img{ width: 60%;display: none; position: absolute; border-radius: 20px;}
 		.t{position: absolute; top: -40%; width: 35%;}
 		.top:nth-child(1){left: 0%;}.top:nth-child(2){left: 74%;}.top:nth-child(3){left: 148%;}.top:nth-child(4){left: 222%;}
 		.down{position: absolute; top: 108%; width: 35%;}
 		.bottom:nth-child(1){left: 0%;}.bottom:nth-child(2){left: 74%;}.bottom:nth-child(3){left: 148%;}.bottom:nth-child(4){left: 222%;}
 		.left{position: absolute; left: -25%; width: 35%;}
 		.right{position: absolute; left: 105%; width: 35%;}
-		.t,.down,.left,.right{display: none;}
-		.mask{ display: none; width:750px ; height: 662px; background-color: bisque; position: absolute; top: 50%; left: 50%; z-index: 1000; margin-top:-331px;margin-left:-375px;}
+		.mask{ display: none; width:750px ; height: 661px; background-color: bisque; position: absolute; top: 50%; left: 50%; z-index: 1000; margin-top:-331px;margin-left:-375px;}
+		.ajax{line-height: 20px;}
 		</style>
 	</head>
 	<body class="a1">
@@ -107,6 +109,9 @@
 		<div class="letter" style="color: rgb(80, 221, 152);">
 			<p style="text-align: center;">❥(^_-) hi (^_-) ❥</p>
 		</div>
+		<div class="letter1">
+			<p class="ajax"></p>
+		</div>
 		<!--遮罩层-->
 		<div class="mask"></div>
 	<script>
@@ -134,9 +139,7 @@
 				alert("密码错误,还有"+s+"次机会");
 				localStorage.setItem('setchances',s);
 				$(".input").addClass("animated rubberBand").fadeOut(2000);
-				setTimeout(function(){
-				        $('.input').removeClass('animated rubberBand');
-				    }, 1000);
+				setTimeout(function(){ $('.input').removeClass('animated rubberBand');}, 1000);
 				check();
 			}else{
 				console.info("OK");
@@ -163,10 +166,9 @@
 		} 
 		/*图片*/
 		function setpicture(href){
-			console.log(href);
 			img = document.createElement('img');
 			img.src = href;
-			img.style = "margin-left:24px"
+			img.style = "margin-left:27px"
 			document.querySelector('.mask').appendChild(img);
 		}
 		/*封面js*/
@@ -176,16 +178,21 @@
 		function bunce(){
 			if(wsm==1){
 			$(".contain").addClass('animated bounce');
+			$("img").removeClass('animated swing');
+			$(".mask>img").removeClass('animated swing');
 			 wsm=0;
 			}else{
 			$(".contain").removeClass('animated bounce');
+			$("img").addClass('animated swing');
+			$(".mask>img").removeClass('animated swing');
 			wsm=1
 			}
 		}
-		$("#open").click(function(){ $(".input").slideDown(2000);$(".t").slideDown(1000);$(".left").delay(1500).slideDown(1000);$(".down").delay(3000).slideDown(1000);$(".right").delay(4500).slideDown(1000);});
-		$(".giveup").click(function(){ $(".input").slideUp(2000);});
+		$("#open").click(function(){ $(".input").slideDown(1500); $("img").slideDown(2000);$(".sure").focus();});
+		$(".giveup").click(function(){ $(".input").slideUp(2000);$("img").slideUp(2000);});
 		$(".img").click(function(){$(".mask").slideDown();setpicture(this.src);});
 		$(".mask").click(function(){$(this).slideUp().find('img').remove();});
+		$(".letter").click(function(){$(this).remove();$(".letter1").fadeIn().addClass("up");ajax();});
         /* document.oncontextmenu = () => false; */
 		new TypeIt(".letter", {
 		  strings:["又是一个生日，对于朋友的生日，即使我再忙，也会提前准备的。即使准备不充分，但至少我用心去准备了。","	",
@@ -240,6 +247,31 @@
         }
     }
 })();
+</script>
+<script>
+	function ajax()
+	{
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+		{
+			//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+			xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{
+			// IE6, IE5 浏览器执行代码
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function()
+		{
+			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			{
+				document.querySelector('.ajax').innerHTML=xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("GET","https://wsm1025.github.io/home/a.txt",true);
+		xmlhttp.send();
+	}
 </script>
 </body>
 </html>
