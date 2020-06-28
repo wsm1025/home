@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>wsm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui-theme-default.css" />
+    <script src="https://cdn.bootcss.com/vue/2.0.5/vue.min.js"></script><!--不能用高版本的vue，否则回复图片无效-->
+    <script src="https://cdn.jsdelivr.net/npm/botui/build/botui.js"></script>
+	  <style>
+		 #hello-world{
+			  height:100%;  
+		  }
+	  </style>
+  </head>
+  <body>
+    <div class="botui-app-container" id="hello-world">
+      <bot-ui></bot-ui>
+    </div>
+    <script>
+  var botui = new BotUI('hello-world');
+     botui.message.bot({ // show first message
+     delay: 200,
+     content: 'hi'
+     }).then(function () {
+     return botui.message.bot({ // second one
+     delay: 1500, // wait 1 sec.
+     content: '又是你生日'
+        })
+     }).then(function(){
+		return botui.message.bot({
+	    delay:2000,
+		content:'有些话想和你说'	
+		})
+	 }).then(function(){return botui.action.button({
+		delay:1500,
+		action:[{
+			     text:'然后呢？>00<',
+			     value:'and'
+		    },
+			{
+				text:'少废话！0-0',
+				value:'gg'
+			}]
+	 })
+	   }).then(function(res){if(res.value=="and"){other()} if(res.value =='gg'){others()}
+   });
+	//第一条
+	var other = function() {
+    botui.message.bot({
+        delay: 1500,
+        content: "想想我们已经是六年好友了"
+    }).then(function() {
+        return botui.message.bot({
+            delay: 1500,
+            content: "真的很不容易，能遇到你![爱心](https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2051815133,237013574&fm=26&gp=0.jpg)"
+        })
+    }).then(function() {
+        return botui.message.bot({
+            delay: 1500,
+            content: "对于朋友的感情很难说出口"
+        })
+    }).then(function() {
+        return botui.message.bot({
+            delay: 1500,
+            content: "但是这几年的相处也决定了我们会一直陪伴下去"
+        })
+    }).then(function() {
+        return botui.message.bot({
+            delay: 1500,
+            content: "希望困难的时候，能想到我，即使不是第一个。"
+        })
+    }).then(function() {
+        return botui.action.button({
+            delay: 1500,
+            action: [{
+                text: "一直一直？",
+                value: "next"
+            }]
+        })
+    }).then(function(res) {
+        return botui.message.bot({
+            delay: 1500,
+            content: "太煽情了，受不了了!!"
+        })
+    }).then(function() {
+        return botui.action.button({
+            delay: 1500,
+            action: [{
+                text: "一直陪伴下去",
+                value: "next"
+            }]
+        })
+    }).then(function(res) {
+        return botui.message.bot({
+            delay: 1500,
+            content: "让我们一起努力"
+        })
+    }).then(function(res) {
+        return botui.message.bot({
+            delay: 1500,
+            content: "等到老的时候，一起出去跳广场舞"
+        })
+    }).then(function(res) {
+        return botui.message.bot({
+            delay: 1500,
+            content: "end~~~~但我们的情谊不会结束![end](https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=209745665,4116596126&fm=26&gp=0.jpg)"
+        })
+	});
+}
+  //第二条返回第一条
+	var others = function() {
+    botui.message.bot({
+        delay: 1500,
+        content: "你居然嫌弃我，等着吧 ![狗东西](https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3338883302,3093876389&fm=26&gp=0.jpg)"
+    }).then(function() {
+        return botui.message.bot({
+            delay: 10000,
+            content: "算了不生气了"
+        })
+    }).then(function(){return other()});//调用other()函数
+	}
+	//禁止右键查看源码
+document.oncontextmenu=new Function("event.returnValue=false;");
+    </script>
+  </body>
+</html>
