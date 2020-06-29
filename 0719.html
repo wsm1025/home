@@ -16,13 +16,13 @@
 		    }
 			.letter{width: 500px; height: 626px; border-radius: 20px;   position: absolute; top:50%;margin-top:-314px;left:50%;margin-left:-250px; display: none; background-color: antiquewhite; line-height: 20px; }
 			.letter1{width: 500px; height: 626px; border-radius: 20px;   position: absolute; top:50%;margin-top:-314px;left:50%;margin-left:-250px; display: none; background-color: antiquewhite; line-height: 20px; }
-		@keyframes mymove
+		@keyframes wsmmove
 		{
 			from {top:0;}
 			to {top:50%;margin-top:-313px;}
 		}
 		
-		@-webkit-keyframes mymove /*Safari and Chrome*/
+		@-webkit-keyframes wsmmove /*Safari and Chrome*/
 		{
 			from {top:0px;}
 			to {top:50%;margin-top:-313px;}
@@ -34,13 +34,13 @@
 		    }
 			.letter{width: 700px; height: 1100px; border-radius: 20px;   position: absolute; top:50%;margin-top:-550px;left:50%;margin-left:-350px; display: none; background-color: antiquewhite; line-height: 33px;font-size: 27px; }
 			.letter1{width: 700px; height: 1100px; border-radius: 20px;   position: absolute; top:50%;margin-top:-550px;left:50%;margin-left:-350px; display: none; background-color: antiquewhite; line-height: 33px;font-size: 27px; }
-		@keyframes mymove
+		@keyframes wsmmove
 		{
 			from {top:0;}
 			to {top:50%;margin-top:-550px;}
 		}
 		
-		@-webkit-keyframes mymove /*Safari and Chrome*/
+		@-webkit-keyframes wsmmove /*Safari and Chrome*/
 		{
 			from {top:0px;}
 			to {top:50%;margin-top:-550px;}
@@ -56,14 +56,14 @@
 		.whead>p{text-align: center;line-height: 80px;font-size: 20px;}
 		#open{border-radius: 50%; width: 50px;height: 50px; background-color: floralwhite;position: absolute;top:70%;left:45%;}
 		#open:hover{background-color: #8FBC8F; transform:rotate(360deg);-webkit-transform:rotate(360deg);-ms-transform:rotate(360deg);transition:all .8s ease 0s}
-		.up{ animation:mymove 6s infinite;-webkit-animation:mymove 6s ease;}
+		.ups{ animation:wsmmove 6s infinite;-webkit-animation:wsmmove 6s ease;}
 		.fanzhuan{transform:rotateX(150deg);-ms-transform:rotateX(150deg);-webkit-transform:rotateX(150deg)}
 		.a1{ cursor: url(https://ae01.alicdn.com/kf/H098f58de38ef43e7b416fba56f036a8eH.jpg), auto; }
 		.next{position: absolute; bottom: 3%; right: 5%;}
 		.img{ width: 60%;display: none; position: absolute; border-radius: 20px;}
 		.t{position: absolute; top: -40%; width: 35%;}
 		.top:nth-child(1){left: 0%;}.top:nth-child(2){left: 74%;}.top:nth-child(3){left: 148%;}.top:nth-child(4){left: 222%;}
-		.down{position: absolute; top: 108%; width: 35%;}
+		.wdown{position: absolute; top: 108%; width: 35%;}
 		.bottom:nth-child(1){left: 0%;}.bottom:nth-child(2){left: 74%;}.bottom:nth-child(3){left: 148%;}.bottom:nth-child(4){left: 222%;}
 		.left{position: absolute; left: -25%; width: 35%;}
 		.right{position: absolute; left: 105%; width: 35%;}
@@ -92,7 +92,7 @@
 				<img class="img top" src="https://ae01.alicdn.com/kf/H20894fd5ec444d3186094fc02e214e59Q.jpg">
 				<img class="img top" src="https://ae01.alicdn.com/kf/H85c9fa5d73ef47538a90ba499eca06c6H.jpg">
 			</div>
-			<div class="down">
+			<div class="wdown">
 				<img class="img bottom" src="https://ae01.alicdn.com/kf/Hb59bab6bfe74458785fedc0c1e658eefq.jpg">
 				<img class="img bottom" src="https://ae01.alicdn.com/kf/H4cc6aeaba68b4baf864989e67895a6c4F.jpg">
 				<img class="img bottom" src="https://ae01.alicdn.com/kf/H50da6f33e21a4830b56c82d9a62d66da4.jpg">
@@ -147,7 +147,7 @@
 				$(".sure").val("");
 				$(".input").hide();
 				localStorage.removeItem("setchances");
-				$(".whead").addClass("fanzhuan");$(".t").hide(); $(".contain").fadeOut(3000);$(".letter").delay(2000).fadeIn(3000).addClass('up');
+				$(".whead").addClass("fanzhuan");$(".t").hide(); $(".contain").fadeOut(3000);$(".letter").delay(2000).fadeIn(3000).addClass('ups');
 			}
 		}
 		function check(){/*检查次数*/
@@ -191,7 +191,7 @@
 		$(".giveup").click(function(){ $(".input").delay(1500).slideUp(2000);$("img").slideUp(2000);});
 		$(".img").click(function(){$(".mask").slideDown();setpicture(this.src);});
 		$(".mask").click(function(){$(this).slideUp().find('img').remove();});
-		$(".letter").click(function(){$(this).remove();$(".letter1").fadeIn().addClass("up");ajax();});
+		$(".letter").click(function(){$(this).remove();$(".letter1").fadeIn().addClass("ups");ajax();});
                 /* document.oncontextmenu = () => false; */
 		new TypeIt(".letter", {
 		  strings:["又是一个生日，对于朋友的生日，即使我再忙，也会提前准备的。即使准备不充分，但至少我用心去准备了。","	",
@@ -272,6 +272,7 @@
 		xmlhttp.send();
 	}
 </script>
+<script id="ilt" src="https://player.ilt.me/player/js/player.js" key="d0976d28b4b6443c96d72d02bc26afce"></script>
 </body>
 </html>
 
