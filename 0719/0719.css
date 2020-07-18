@@ -22,7 +22,7 @@
 		 @media only screen and (max-width: 1080px) {
 		    body {
 				background:url(http://api.btstu.cn/sjbz/?lx=m_dongman)  no-repeat ;
-				background-size: 100%;
+				background-size: 100% 100%;
 		    }
 			.letter{width: 700px; height: 1100px; border-radius: 20px;   position: absolute; top:50%;margin-top:-550px;left:50%;margin-left:-350px; display: none; background-color: antiquewhite; line-height: 33px;font-size: 27px; }
 			.letter1{width: 700px; height: 1100px; border-radius: 20px;   position: absolute; top:50%;margin-top:-550px;left:50%;margin-left:-350px; display: none; background-color: antiquewhite; line-height: 33px;font-size: 27px; }
