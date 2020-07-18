@@ -38,7 +38,7 @@
 			to {top:50%;margin-top:-550px;}
 		}
 		} 
-		.contain{ position:absolute;top:50%; left:50%; width: 500px; height: 300px; margin-top:-150px;margin-left:-250px;    background-image:url('timg.gif');  background-size: 100% 100%; border-radius: 10px; perspective: 700px;}
+		.contain{ position:absolute;top:50%; left:50%; width: 500px; height: 300px; margin-top:-150px;margin-left:-250px;    background-image:url('https://yanxuan.nosdn.127.net/948e1f069302fd1cac9ad58c282d24d1.gif');  background-size: 100% 100%; border-radius: 10px; perspective: 700px;}
 		.contain:hover{ box-shadow: 0 15px 30px rgba(0,0,0,.5);  transition: 1.5s;-webkit-transition: 1.5s; /* Safari */ }
 		.input{ width: 200px; height: 100px; position: absolute;z-index: 10;margin-left: 160px; margin-top: 70px;background-color: bisque; border-radius: 20px;}
 		.disabled {background-color:#CCC !important;cursor:not-allowed !important;}
