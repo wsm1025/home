@@ -112,6 +112,10 @@ check(); /*检测本地数据*/
 				ajax();
 			});
 			document.oncontextmenu = () => false;
+                            var windowWidth = $(window).width();
+			    if(windowWidth >= 840){
+			       document.write("<script src='https://api.vvhan.com/api/snow'></script>");
+			    }
 			new TypeIt(".letter", {
 				strings: ["又是一个生日，对于朋友的生日，即使我再忙，也会提前准备的。即使准备不充分，但至少我用心去准备了。", "	",
 					"可能我给不到手工的作品，但我用我所学的东西准备了一份不太精彩的礼物。纯手工QAQ", "	",
