@@ -6,7 +6,7 @@
 		        background:url(https://v2.gqink.cn/api/imagesdm/images) ;
 		    }
 			.letter{width: 500px; height: 626px; border-radius: 20px;   position: absolute; top:50%;margin-top:-314px;left:50%;margin-left:-250px; display: none; background-color: antiquewhite; line-height: 20px; }
-			.letter1{width: 500px; height: 626px; border-radius: 20px;   position: absolute; top:50%;margin-top:-314px;left:50%;margin-left:-250px; display: none; background-color: antiquewhite; line-height: 20px; }
+			.letter1{width: 528px; height: 626px; border-radius: 20px;   position: absolute; top:50%;margin-top:-314px;left:50%;margin-left:-250px; display: none; background-color: antiquewhite; line-height: 20px; }
 		@keyframes wsmmove
 		{
 			from {top:0;}
