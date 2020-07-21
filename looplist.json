@@ -1,21 +1,26 @@
 {
-	"img": [{
-			"1": "https://yanxuan.nosdn.127.net/eed7bfb015235388ca73ae812dc60b4a.jpg"
-		},
-		{
-			"2": "https://yanxuan.nosdn.127.net/3d1637d5927ae298932e06256802f9a8.jpg"
-		},
-		{
-			"3": "https://yanxuan.nosdn.127.net/5ddf1d834e05d31a0f0ef4b5844d22fe.jpg"
-		},
-		{
-			"4": "https://yanxuan.nosdn.127.net/f0523182095fb10102fb17ee75964d02.jpg"
-		},
-		{
-			"5":"https://yanxuan.nosdn.127.net/13650283b07279b698bdb95a6b426ee6.jpg"
-		},
-		{
-			"6":"https://yanxuan.nosdn.127.net/020848badd44f5790ffd7ede945f1cdc.jpg"
-		}
-	]
+  "1": {
+    "img": "https://yanxuan.nosdn.127.net/eed7bfb015235388ca73ae812dc60b4a.jpg",
+    "id": "1"
+  },
+  "2": {
+    "img": "https://yanxuan.nosdn.127.net/3d1637d5927ae298932e06256802f9a8.jpg",
+    "id": "2"
+  },
+  "3": {
+    "img": "https://yanxuan.nosdn.127.net/5ddf1d834e05d31a0f0ef4b5844d22fe.jpg",
+    "id": "3"
+  },
+  "4": {
+    "img": "https://yanxuan.nosdn.127.net/f0523182095fb10102fb17ee75964d02.jpg",
+    "id": "4"
+  },
+  "5": {
+    "img": "https://yanxuan.nosdn.127.net/13650283b07279b698bdb95a6b426ee6.jpg",
+    "id": "5"
+  },
+  "6": {
+    "img": "https://yanxuan.nosdn.127.net/020848badd44f5790ffd7ede945f1cdc.jpg",
+    "id": "6"
+  }
 }
