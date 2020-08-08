@@ -180,10 +180,10 @@ new TypeIt(".letter", {
 })();
 /*axios*/
 for (var a = 2; a <= page; a++) {
-	var button  = document.createElement('button');
-	button.className = "button";
-	button.innerHTML = a;
-	document.querySelector('.select').appendChild(button);
+	var button  = document.createElement('span');
+	span.className = "button";
+	span.innerHTML = a;
+	document.querySelector('.select').appendChild(span);
 }
 $(".button").click(function(){
 	var a = this.innerHTML;
