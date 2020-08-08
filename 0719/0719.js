@@ -3,7 +3,7 @@ check(); /*检测本地数据*/
 let flag = 1; /*标识符*/
 var wsm = 1; /*标识符*/
 let password = 'cw0719';
-let page = 5;/*页数*/
+let page = 3;/*页数*/
 
 function set() { /*本地存储可用次数和密码*/
 	localStorage.setItem('password', password);
