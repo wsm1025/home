@@ -180,7 +180,7 @@ new TypeIt(".letter", {
 })();
 /*axios*/
 for (var a = 2; a <= page; a++) {
-	var button  = document.createElement('span');
+	var span  = document.createElement('span');
 	span.className = "button";
 	span.innerHTML = a;
 	document.querySelector('.select').appendChild(span);
