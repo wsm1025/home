@@ -10,7 +10,7 @@ li {
 /*屏幕适配*/
 @media only screen and (min-width: 800px) {
 	body {
-		background: url(https://v2.gqink.cn/api/imagesdm/images);
+		background: url(https://api.vvhan.com/api/acgimg);
 	}
 
 	.letter {
